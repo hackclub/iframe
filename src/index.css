@@ -1,19 +1,25 @@
-/* --- Global Resets and Base Styles --- */
-/* Import any custom fonts here, e.g., from Google Fonts */
+/*
+ * Main stylesheet for Hack Club IFrame project
+ * Contains responsive layout, styling, and UI components
+ */
+
+/* ---------------------------------------------
+ * Base Configuration & CSS Reset
+ * --------------------------------------------- */
+/* Typography can be imported from Google Fonts when needed */
 /* @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght+700&family=Felt+Tip+Senior&display=swap'); */
-/* (Uncomment and replace with actual font URLs if needed) */
 
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-  font-family: Arial, sans-serif; /* Default fallback font */
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  font-family: Arial, sans-serif; /* System fallback */
+  box-sizing: border-box;
 }
 
 *, *::before, *::after {
-  box-sizing: inherit; /* Inherit box-sizing for all elements */
+  box-sizing: inherit; /* Propagate box-sizing model */
 }
 
 #root {
@@ -22,59 +28,59 @@ html, body {
   overflow: hidden;
 }
 
-/* Wall texture background */
+/* Document background with texture */
 body {
-  background: url('./assets/paper.jpeg'); /* This was in your first base CSS */
+  background: url('./assets/paper.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Fixed background relative to the viewport */
+  background-attachment: fixed; /* Fixed during scroll */
   background-position: center center;
 }
 
-/* --- Utility Classes (for custom fonts) --- */
+/* ---------------------------------------------
+ * Typography Utilities
+ * --------------------------------------------- */
 .shantell-font {
-  font-family: 'Shantell Sans', cursive; /* Use your actual font-family name */
+  font-family: 'Shantell Sans', cursive;
 }
 
 .felt-tip-font {
-  font-family: 'Felt Tip Senior', sans-serif; /* Use your actual font-family name */
+  font-family: 'Felt Tip Senior', sans-serif;
 }
 
-/* --- Main App Layout --- */
+/* ---------------------------------------------
+ * Main Application Layout
+ * --------------------------------------------- */
 .app-container {
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative; /* KEEP THIS AS RELATIVE */
+  position: relative; /* Parent for absolute positioning */
   overflow: hidden;
   margin: 0;
   padding: 0;
-  display: flex; /* Keep flex to easily center the CTA horizontally */
-  flex-direction: column; /* Stack children vertically */
-  align-items: flex-start; /* Align CTA and other elements to the left, as per screenshot */
-  justify-content: flex-start; /* Align elements to the top, as per screenshot */
-  /* background-image will be set by the React component via inline style for dynamic import */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* background-image set via inline style in App component */
 }
 
-/* --- Logo and Challenge Intro Section --- */
+/* ---------------------------------------------
+ * Logo & Introduction Components
+ * --------------------------------------------- */
 .logo-frame {
-  position: absolute; /* Position relative to .app-container */
-  top: 8vh; /* Matches your inline style for CTA's margin-top from screenshot */
-  left: 55px; /* Aligns with the left side of the logo, as per screenshot */
-  width: 600px; /* Based on your inline width for logo-frame */
-  height: 360px; /* Based on your inline height for logo-frame */
+  position: absolute;
+  top: 8vh;
+  left: 55px;
+  width: 600px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2; /* Ensure it's above frames */
-  /* Uncomment if you want the visual frame for the logo */
-  /* background: #fff; */
-  /* border: 4px solid #222; */
-  /* border-radius: 8px; */
-  /* box-shadow: 0 4px 16px rgba(0,0,0,0.08); */
-  /* padding: 32px; */ /* If you uncomment the above, add this padding back */
+  z-index: 2;
 }
 
 .logo-img {
@@ -84,21 +90,21 @@ body {
 }
 
 .challenge-intro {
-  position: absolute; /* Position relative to .app-container */
-  top: calc(8vh + 360px + 20px); /* Position below logo-frame + 20px margin */
-  left: 55px; /* Aligns with the left side of the logo */
+  position: absolute;
+  top: calc(8vh + 360px + 20px); /* Position below logo + spacing */
+  left: 55px;
   width: 600px;
   background: rgba(255,255,255,0.85);
   padding: 24px 32px;
   border-radius: 24px;
   border: 6px solid #222;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  font-family: inherit; /* Uses font from nearest inherited parent or default */
+  font-family: inherit;
   text-align: center;
   color: #222;
-  z-index: 2; /* Ensure it's above frames */
-  max-width: calc(100vw - 110px); /* Prevent horizontal overflow on smaller viewports */
-  box-sizing: border-box; /* Include padding/border in width */
+  z-index: 2;
+  max-width: calc(100vw - 110px); /* Prevent overflow */
+  box-sizing: border-box;
 }
 
 .challenge-intro h2 {
@@ -121,20 +127,22 @@ body {
   text-shadow: 0 1px 6px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.08);
 }
 
-/* --- Image Frames Section --- */
+/* ---------------------------------------------
+ * Frame Gallery Section
+ * --------------------------------------------- */
 .frames-section {
-  position: absolute; /* Position absolutely relative to .app-container */
-  bottom: 30vh; /* Adjust this to move frames up/down from the bottom, as per screenshot */
-  right: 50px; /* Position from the right edge, as per screenshot */
+  position: absolute;
+  bottom: 30vh;
+  right: 50px;
   display: flex;
   gap: 40px;
-  align-items: flex-end; /* Align items to the bottom of the flex container */
-  justify-content: flex-end; /* Align items to the right */
-  width: fit-content; /* Allows element to shrink to content, important for right/left positioning */
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: fit-content;
   padding: 20px;
   box-sizing: border-box;
-  z-index: 1; /* Ensure frames are layered below logo/intro */
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  z-index: 1;
+  flex-wrap: wrap; /* Handle overflow on small screens */
 }
 
 .frame-item {
@@ -142,9 +150,7 @@ body {
   width: 280px;
   height: 330px;
   flex-shrink: 0;
-  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Removed the box-shadow */
-  border-radius: 5px; /* Slight rounding for consistency with shadow */
-  /* No hover effects on frames, as requested */
+  border-radius: 5px;
 }
 
 .framed-image {
@@ -168,8 +174,9 @@ body {
   z-index: 10;
 }
 
-
-/* --- Buttons --- */
+/* ---------------------------------------------
+ * UI Components - Buttons
+ * --------------------------------------------- */
 .real-btn {
   padding: 14px 36px;
   color: #222;
@@ -182,18 +189,15 @@ body {
   transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
   outline: none;
   margin-top: 28px;
-  margin-left: auto; /* This will push the button to the right if in a flex container */
-  margin-right: 20px; /* Add some spacing from the right edge */
+  margin-left: auto;
+  margin-right: 20px;
   display: inline-block;
   background-color: #fff;
   position: relative;
 }
 
 .real-btn:hover {
-  background: linear-gradient(90deg,
-  #ffd54f 0%,
-  #ffffff 50%,
-  #ffd54f 100%);
+  background: linear-gradient(90deg, #ffd54f 0%, #ffffff 50%, #ffd54f 100%);
   box-shadow: 0 6px 24px rgba(0,0,0,0.16);
   transform: translateY(-2px) scale(1.03);
 }
@@ -204,7 +208,7 @@ body {
   transform: translateY(1px) scale(0.98);
 }
 
-/* Container class to help position the button */
+/* Button container for alignment */
 .button-container {
   display: flex;
   width: 100%;
@@ -220,27 +224,21 @@ body {
   padding-right: 0;
 }
 
-/* Additional utility classes for positioning */
+/* Utility classes for button positioning */
 .align-right {
   margin-left: auto;
   margin-right: 0;
 }
 
-.mr-10 {
-  margin-right: 10px;
-}
+.mr-10 { margin-right: 10px; }
+.mr-20 { margin-right: 20px; }
+.mr-30 { margin-right: 30px; }
 
-.mr-20 {
-  margin-right: 20px;
-}
-
-.mr-30 {
-  margin-right: 30px;
-}
-
-/* --- Media Queries for Responsiveness --- */
+/* ---------------------------------------------
+ * Responsive Layout Adaptations
+ * --------------------------------------------- */
 @media (max-width: 1200px) {
-  /* Adjustments for larger tablets/smaller desktops if needed */
+  /* Large tablet/small desktop adjustments */
   .logo-frame {
     left: 30px;
     width: 500px;
@@ -267,8 +265,8 @@ body {
   .framed-image {
     top: 30px;
     left: 30px;
-    width: 190px; /* Adjust based on new frame size */
-    height: 230px; /* Adjust based on new frame size */
+    width: 190px;
+    height: 230px;
   }
 
   .frame-overlay {
@@ -278,38 +276,38 @@ body {
 }
 
 @media (max-width: 992px) {
-  /* Adjustments for tablets */
+  /* Tablet layout - stack components vertically */
   .logo-frame, .challenge-intro {
-    position: static; /* Stack them normally */
-    margin: 20px auto; /* Center horizontally */
-    width: 90%; /* Take up more width */
-    max-width: 600px; /* Limit max width */
+    position: static;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
     height: auto;
-    transform: none; /* Remove any absolute positioning transforms */
-    top: auto; /* Remove fixed top */
-    left: auto; /* Remove fixed left */
+    transform: none;
+    top: auto;
+    left: auto;
   }
 
   .frames-section {
-    position: static; /* Stack frames normally below CTA */
+    position: static;
     bottom: auto;
     right: auto;
-    width: 100%; /* Take full width */
-    justify-content: center; /* Center frames within the section */
-    flex-direction: column; /* Stack frames vertically */
-    padding: 20px 0; /* Adjust padding */
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
     gap: 20px;
   }
 
   .frame-item {
-    width: 80%; /* Make frames wider on smaller screens */
-    max-width: 350px; /* Max width for individual frames */
-    height: auto; /* Adjust height automatically */
-    margin: 0 auto; /* Center individual frames */
+    width: 80%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
   }
 
   .framed-image {
-    width: calc(100% - 66px); /* Adjust based on padding/offset */
+    width: calc(100% - 66px);
     height: auto;
     left: 33px;
     top: 33px;
@@ -318,24 +316,26 @@ body {
   .frame-overlay {
     width: 100%;
     height: auto;
-    padding-bottom: 117.85%; /* Maintain aspect ratio (330/280 * 100) */
+    padding-bottom: 117.85%; /* Maintain aspect ratio */
   }
 
   .real-btn {
-    position: static; /* Remove absolute positioning relative to frame */
-    transform: none; /* Remove translation */
-    margin: 20px auto; /* Center the button */
-    display: block; /* Make it a block element to center */
-    width: fit-content; /* Adjust width to content */
+    position: static;
+    transform: none;
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
   }
 }
 
 @media (max-width: 768px) {
+  /* Small tablet adaptations */
   .logo-frame {
     height: 250px;
   }
+
   .logo-img {
-    width: 80%; /* Adjust logo size */
+    width: 80%;
     height: auto;
   }
 
@@ -354,9 +354,11 @@ body {
 }
 
 @media (max-width: 480px) {
+  /* Mobile layout adjustments */
   .logo-frame {
     height: 200px;
   }
+
   .logo-img {
     width: 70%;
   }
@@ -380,7 +382,7 @@ body {
   }
 
   .framed-image {
-    width: calc(100% - 60px); /* Smaller offset for smaller frames */
+    width: calc(100% - 60px);
     left: 30px;
     top: 30px;
   }

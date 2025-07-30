@@ -10,14 +10,15 @@ function App() {
         <div
             className="app-container"
             style={{
-                // Keep background-image here as it's dynamic based on import
+                // Dynamic background using imported asset
                 'background-image': `url(${background})`,
             }}
         >
-            {/* Call to Action Section - This grouping of logo and intro is conceptual */}
-            {/* Based on the screenshot, the logo and challenge-intro are separate absolute elements. */}
-            {/* The inline style for the 'div' around them would be removed entirely as they are
-          now positioned independently in CSS. */}
+            {/*
+             * Main UI Components
+             * Layout uses absolute positioning for precise placement
+             * as specified in the corresponding CSS
+             */}
 
             <div className="logo-frame">
                 <img src={logo} alt="Logo" className="logo-img" />
@@ -28,9 +29,9 @@ function App() {
                 <p>Edit an image in Python, and we'll hang it on the Hack Club HQ wall! You even get to pick the perfect spot.</p>
             </div>
 
-            {/* Image Frames Section */}
+            {/* Frame gallery section - contains user image and submission area */}
             <div className="frames-section">
-                {/* Frame 1 with image behind */}
+                {/* User's edited image with decorative frame overlay */}
                 <div className="frame-item">
                     <img
                         src={picture}
@@ -40,21 +41,20 @@ function App() {
                     <div
                         className="frame-overlay"
                         style={{
-                            // Keep background-image here as it's dynamic based on import
                             background: `url(${Frame1}) center/contain no-repeat`,
                         }}
                     />
                 </div>
-                {/* Frame 2 (just the frame, no image behind) */}
+
+                {/* Target frame for HQ wall placement with submit action */}
                 <div className="frame-item">
                     <div
                         className="frame-overlay"
                         style={{
-                            // Keep background-image here as it's dynamic based on import
                             background: `url(${frame2}) center/contain no-repeat`,
                         }}
                     />
-                    {/* Button to submit  */}
+                    {/* Action button container */}
                     <div className="button-container">
                         <button className="real-btn long-btn">Submit</button>
                     </div>
