@@ -1,0 +1,26 @@
+{
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.7",
+    "tailwindcss": "^4.0.7",
+    "vite": "^6.0.0",
+    "vite-plugin-solid": "^2.11.6"
+  },
+  "dependencies": {
+    "@spectrum-web-components/dialog": "^1.7.0",
+    "@spectrum-web-components/theme": "^1.7.0",
+    "bootstrap": "^5.3.7",
+    "react-bootstrap": "^2.10.10",
+    "solid-js": "^1.9.5"
+  }
+}
