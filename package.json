@@ -20,7 +20,6 @@
     "@spectrum-web-components/dialog": "^1.7.0",
     "@spectrum-web-components/theme": "^1.7.0",
     "bootstrap": "^5.3.7",
-    "react-bootstrap": "^2.10.10",
     "solid-js": "^1.9.5"
   }
 }
