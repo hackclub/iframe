@@ -26,7 +26,7 @@ function App() {
 
             <div className="challenge-intro">
                 <h2>Hack Club IFrame!</h2>
-                <p>Edit an image in Python, and we'll hang it on the Hack Club HQ wall! You even get to pick the perfect spot.</p>
+                <p>Use Python to create or edit an image. We'll print it, frame it, and hang it on the wall of Hack Club HQ, and you get to pick the perfect spot. Once it's up, we'll send you a framed photo of your artwork on the wall.</p>
             </div>
 
             {/* Frame gallery section - contains user image and submission area */}
@@ -44,6 +44,13 @@ function App() {
                             background: `url(${Frame1}) center/contain no-repeat`,
                         }}
                     />
+                    {/*// i want a infomational screen here that shadows everything else and guide you how to get started */}
+                    <button onClick={() => window.open("https://forms.hackclub.com/t/hsoAZB58ZCus", "_blank")}
+                            className="real-btn long-btn"
+                            style={{"margin-top": "37px"}}
+                    >
+                        Google Colab.
+                    </button>
                 </div>
 
                 {/* Target frame for HQ wall placement with submit action */}
@@ -56,7 +63,9 @@ function App() {
                     />
                     {/* Action button container */}
                     <div className="button-container">
-                        <button className="real-btn long-btn">Submit</button>
+                        <button onClick={() => window.open("https://forms.hackclub.com/t/hsoAZB58ZCus", "_blank")}
+                                className="real-btn long-btn">Submit
+                        </button>
                     </div>
                 </div>
             </div>

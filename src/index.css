@@ -184,13 +184,13 @@ body {
   font-weight: 700;
   border: 2px solid #222;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
   outline: none;
   margin-top: 28px;
-  margin-left: auto;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: inline-block;
   background-color: #fff;
   position: relative;
@@ -198,13 +198,13 @@ body {
 
 .real-btn:hover {
   background: linear-gradient(90deg, #ffd54f 0%, #ffffff 50%, #ffd54f 100%);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
   transform: translateY(-2px) scale(1.03);
 }
 
 .real-btn:active {
   background: #ffe082;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transform: translateY(1px) scale(0.98);
 }
 
@@ -214,6 +214,8 @@ body {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .long-btn {
@@ -230,9 +232,17 @@ body {
   margin-right: 0;
 }
 
-.mr-10 { margin-right: 10px; }
-.mr-20 { margin-right: 20px; }
-.mr-30 { margin-right: 30px; }
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
 
 /* ---------------------------------------------
  * Responsive Layout Adaptations
