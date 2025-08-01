@@ -26,7 +26,7 @@ function App() {
 
             <div className="challenge-intro">
                 <h2>Hack Club IFrame!</h2>
-                <p>Modify or Generate an image in Python. We'll frame it, hang it at Hack Club HQ, and send you a printed photo.</p>
+                <p>Use any programming language to create or transform images (we suggest Python). We'll print it, frame it, and hang it on our wall & send a copy to you.</p>
             </div>
 
             {/* Frame gallery section - contains user image and submission area */}
