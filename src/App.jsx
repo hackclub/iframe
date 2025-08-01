@@ -26,7 +26,7 @@ function App() {
 
             <div className="challenge-intro">
                 <h2>Hack Club IFrame!</h2>
-                <p>Use Python to create or edit an image. We'll print it, frame it, and hang it on the wall of Hack Club HQ, and you get to pick the perfect spot. Once it's up, we'll send you a framed photo of your artwork on the wall.</p>
+                <p>Modify or Generate an image in Python. We'll frame it, hang it at Hack Club HQ, and send you a printed photo.</p>
             </div>
 
             {/* Frame gallery section - contains user image and submission area */}
@@ -45,11 +45,11 @@ function App() {
                         }}
                     />
                     {/*// i want a infomational screen here that shadows everything else and guide you how to get started */}
-                    <button onClick={() => window.open("https://forms.hackclub.com/t/hsoAZB58ZCus", "_blank")}
+                    <button onClick={() => window.open("https://colab.research.google.com/drive/1yFN0Rat1rGmxzYJ_KCAfhq5m1L3V0mOw?usp=sharing", "_blank")}
                             className="real-btn long-btn"
                             style={{"margin-top": "37px"}}
                     >
-                        Google Colab.
+                        Get Started.
                     </button>
                 </div>
 
