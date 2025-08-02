@@ -31,5 +31,31 @@
 <body>
   <h1>Coming Soon</h1>
   <p>Hang Tight - A leek ?!?!</p>
+  <img src="src/assets/broken_frame.png" alt="Broken Frame" class="broken-frame" />
+  <img src="src/assets/logo.png" alt="Logo" class="logo-top-right" />
+  <style>
+    .broken-frame {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 480px;
+      height: auto;
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }
+    .logo-top-right {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 480px;
+      height: auto;
+      z-index: 11;
+      pointer-events: none;
+      user-select: none;
+      transform: scaleX(-1);
+      margin: 16px;
+    }
+  </style>
 </body>
 </html>
