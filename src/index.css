@@ -7,7 +7,7 @@
  * Base Configuration & CSS Reset
  * --------------------------------------------- */
 /* Typography can be imported from Google Fonts when needed */
-/* @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght+700&family=Felt+Tip+Senior&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Caveat:wght@400;700&display=swap');
 
 html, body {
   margin: 0;
@@ -52,20 +52,82 @@ body {
  * Main Application Layout
  * --------------------------------------------- */
 .app-container {
-  height: 100vh;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative; /* Parent for absolute positioning */
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  /* background-image set via inline style in App component */
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Flag waving animation */
+.flag-wave {
+    transition: transform 0.2s ease;
+    transform-origin: left center;
+}
+
+.flag-wave:hover {
+    animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(2deg);
+    }
+    75% {
+        transform: rotate(-2deg);
+    }
+}
+
+.start-button {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-220px);
+    width: 200px;
+    padding: 20px 0;
+    background-color: #ec3750;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Kalam', cursive;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+.start-button:hover {
+    background-color: #d63447;
+    transform: translateX(-220px) translateY(-1px);
+}
+
+.submit-button {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(20px);
+    width: 200px;
+    padding: 20px 0;
+    background-color: #338a3e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Kalam', cursive;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #2e7233;
+    transform: translateX(20px) translateY(-1px);
 }
 
 /* ---------------------------------------------
