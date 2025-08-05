@@ -1,5 +1,8 @@
 
-import background from './assets/iframe.png';
+import background from './assets/iframe-1920.png';
+import backgroundMobile from './assets/iframe-768.png';
+import backgroundTablet from './assets/iframe-1280.png';
+
 import { createSignal } from 'solid-js';
 
 function App() {
@@ -21,11 +24,15 @@ function App() {
         <div
             class="app-container"
             style={{
-                'background-image': `url(${background})`
+                '--bg-desktop': `url(${background})`,
+                '--bg-tablet': `url(${backgroundTablet})`,
+                '--bg-mobile': `url(${backgroundMobile})`,
+                '--bg-image': `url(${background})`
             }}
         >
             <a href="https://hackclub.com/">
                 <img
+                    class="flag-wave"
                     style={{
                         position: 'absolute',
                         top: 0,
