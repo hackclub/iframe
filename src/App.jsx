@@ -3,10 +3,22 @@ import background from './assets/iframe-1920.png';
 import backgroundMobile from './assets/iframe-768.png';
 import backgroundTablet from './assets/iframe-1280.png';
 
-import { createSignal } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
 
 function App() {
     const [showPopup, setShowPopup] = createSignal(true);
+    const [isMobile, setIsMobile] = createSignal(false);
+
+    createEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    });
 
     const handleGetStarted = () => {
         window.open("https://colab.research.google.com/drive/1yFN0Rat1rGmxzYJ_KCAfhq5m1L3V0mOw?usp=sharing", "_blank");
@@ -19,6 +31,18 @@ function App() {
     const togglePopup = () => {
         setShowPopup(!showPopup());
     };
+
+    if (isMobile()) {
+        return (
+            <div class="mobile-redirect-container">
+                <div class="mobile-message">
+                    <div class="mobile-icon">💻</div>
+                    <h1>Please open on desktop</h1>
+                    <p>This experience is designed for laptop or desktop computers.</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div
